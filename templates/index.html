@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Silke's Blog</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'index/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'index/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'index/css/content.css' %}">
+    <link rel="stylesheet" href="{% static 'index/css/footer.css' %}">
+</head>
+<body>
+    <!--header-->
+    {% include 'index/header.html' %}
+    <!--content-->
+    <div class="content">   
+        {%for i in articles %}
+            <div class="card">
+                {%if forloop.counter|divisibleby:2 %}
+                <div class="card_image" style="border-radius: 32px 0px 0px 32px"></div>
+                <div class="card_file" style="border-radius: 0px 32px 32px 0px">
+                {% endif %}
+                {%if forloop.counter0|divisibleby:2 %}
+                <div class="card_file">
+                {% endif %}
+                    <div id="file_data"><i class="fa far fa-clock"></i>{{ i.created }}</div>
+                    <div id="file_head">
+                        <a href="{% url 'article:article_detail' i.id %}#sticky"><span>标题:{{ i.title }}</span></a>
+                    </div>
+                    <div id="file_meta">
+                        <i class="fas fa-eye"></i><span> {{ i.views }} </span>
+                        <i class="fas fa-pencil-alt"></i><span> {{ i.author }} </span>
+                    </div>
+                    <div id="file_show">
+                        <span>摘要:{{ i.summary }}</span>
+                    </div>
+                    <div id="file_option">
+                        <i class="fas far fa-edit"></i><span> </span>
+                        <i class="fas far fa-trash-alt"></i><span></span>
+                    </div>
+                </div>
+                {%if forloop.counter0|divisibleby:2 %}
+                <div class="card_image"></div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <!--footer-->
+</body>
+</html>

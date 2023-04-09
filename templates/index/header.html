@@ -1,0 +1,54 @@
+{% load static %}
+<div class="header">
+    <div class="navbar_top">
+        <div id="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            <input type="text" placeholder="search...">
+        </div>
+        <div id="navblock">
+            <ul>
+                <li><a href="{% url 'index' %}"><i class="fa fa-home"></i>首页</a></li>
+                <li id="envelope_drop">
+                    <a href="###"><i class="fa fa-envelope"></i>联系</a>
+                    <div id="envelope_hide">
+                        <a href="###"><i class="fab fa-qq"></i>QQ</a>
+                        <a href="https://space.bilibili.com/3493137005676846"><i class="fab fa-bilibili"></i>B站</a>
+                    </div>
+                </li>
+                <li id="link_drop">
+                    <a href="###"><i class="fa fa-link"></i>关于</a>
+                    <div id="link_hide">
+                        <a href="###">v我50</a>
+                        <a href="###">٩(ˊωˋ*)و</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="background">
+        <canvas id="matrix"></canvas>
+        <script src="{% static 'index/js/matrix.js' %}"></script>
+    </div>
+    <div class="background_block">
+        <h1>Silke's Blog</h1>
+    </div>
+    <div class="navbar_bottom" id="sticky">
+        <ul>
+            <li id="cloud_drop">
+                <a href="###"><i class="fa fa-cloud"></i>仓库</a>
+                <div id="cloud_hide">
+                    <a href="###">图片</a>
+                    <a href="###">文档</a>
+                    <a href="###">实验室</a>
+                </div>
+            </li>
+            <li id="cog_drop">
+                <a href="/admin"><i class="fa fa-cog"></i>后台</a>
+            </li>
+            <li id="book_drop">
+                <a href="{% url 'article:article' %}#sticky"><i class="fa fa-book"></i>随笔</a>
+            </li>
+        </ul>
+    </div>
+    <script src="{% static 'index/js/sticky.js' %}"></script>
+</div>
